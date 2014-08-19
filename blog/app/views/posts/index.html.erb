@@ -1,0 +1,21 @@
+<h1>Our Blog</h1>
+
+
+<table>
+ <tr>
+   <th>Title</th>
+   <th>Content</th>
+ <tr>
+</table>
+
+<% @posts.each do |post| %>
+  <p>
+     <%= post.title %>
+     <%= post.content %> &nbsp; <%= link_to "Show" , post %> |
+     <%= link_to "Edit", edit_post_path(post)%> |
+     <%= link_to "Delete",post ,:method => :delete, data: { confirm: "Are you sure"} %>
+
+  </p>
+<% end %>
+
+<p><%= link_to "Add a New Post", new_post_path %></p>
