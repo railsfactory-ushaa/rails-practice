@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SampleApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body><%if user_signed_in? %>
+<%=image_tag current_user.avatar.url %>
+you are signed in as <%=current_user.email %>
+<%= link_to "sign out",destroy_user_session_path,:method=> :delete %>
+
+<%else %>
+<%= link_to "signup",new_user_registration_path %> or <%= link_to "sign in",new_user_session_path %>
+
+<%end %>
+<% flash.each do |name,message| %>
+<%=content_tag :div,message, :id=> "flash_#{name}" %>
+<% end %>
+<%=debug(params) %>
+
+<%= yield %>
+
+</body>
+</html>

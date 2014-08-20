@@ -1,0 +1,18 @@
+<h1>Add new item to the list</h1>
+<%=form_for @sample,:url=>'/sample' do |f| %>
+<% if @sample.errors.any? %>
+<h2>Errors: </h2>
+<ul>
+<% @sample.errors.full_messages.each do |message| %>
+<li><%=message %> </li>
+<% end %>
+</ul>
+<% end %>
+
+
+
+
+<%= f.label :title %>:<%=f.text_field :title %>
+<%= f.label :desc %>:<%=f.text_field :desc %>
+<%=f.submit "Add to list" %>
+<% end %>
