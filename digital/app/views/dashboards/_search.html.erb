@@ -1,0 +1,74 @@
+<div align="center"  >
+   <FONT SIZE="10"  COLOR=blue>welcome to dashboard</FONT>
+</div>
+
+<%= form_tag search_dashboards_path, method: :get do %>
+<%= text_field_tag 'text', 'Enter your search query here' %>
+ <%= select_tag 'category', options_for_select(Category.all.map{ |c| [c.name, c.id] }) %>
+<%= submit_tag "Go" %>
+<% end %>
+
+<div class="box">
+  <h3>Device</h3>
+      <h2>
+      You have  <%= @devices.count  %>  Devices:<br>
+   </h2>
+  <table> 
+<thead>
+<tr>
+<th>Device name</th>
+</tr>
+</thead>
+<% @devices.each do |f| %>
+<tr>
+<td><%= f.name %><br></td>
+<td><%= link_to 'Show', f %></td>
+</tr>
+<% end %>
+</table>
+ </div> 
+
+
+<div class="box1">
+  <h3>Orders</h3>
+    <h2>
+      You have  <%= @orders.count  %>  orders:<br>
+   </h2>
+ <table> 
+<thead>
+<tr>
+<th>Order_id</th>
+</tr>
+<% @orders.each do |f| %>
+<tr>
+<td><%= f.id %><br></td>
+<td><%= link_to 'Show', f %></td>
+</tr>
+<% end %>
+</table>
+ </div>
+
+<div class="boxx">
+  <h3>Users</h3>
+    <h2>
+      You have  <%= @users.count  %>  users:<br>
+   </h2>
+ <table> 
+<thead>
+<tr>
+<th>User name</th>
+</tr>
+<% @users.each do |f| %>
+<tr>
+<td><%= f.first_name %><br></td>
+
+<td><%= link_to 'Show', user_path(f) %></td>
+</tr>
+<% end %>
+</table>
+ </div>
+
+
+
+
+

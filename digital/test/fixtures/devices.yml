@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  price: 1
+  location_id: 1
+  resolution_id: 1
+  work_from: 2014-09-15 14:37:52
+  work_till: 2014-09-15 14:37:52
+
+two:
+  name: MyString
+  description: MyString
+  price: 1
+  location_id: 1
+  resolution_id: 1
+  work_from: 2014-09-15 14:37:52
+  work_till: 2014-09-15 14:37:52

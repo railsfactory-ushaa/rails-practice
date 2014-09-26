@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio Item - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style type="text/css">
+body {background-color:HoneyDew;}
+h1 {color:blue;}
+h2 {color:HotPink;}
+</style>
+        <div class="container">
+<% benchmark '##Render header in application' do %>
+                 <%= render "shared/header" %>
+                 <% end %>
+</div>
+<div id = "log">  
+<% if user_signed_in? && current_user.role_id == 3 %>
+  
+   You are currently signed in as <%= current_user.email %>,not you?
+   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% elsif user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+   <strong>welcome admin</strong>
+   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% end %>
+<% unless user_signed_in? %>
+   <%= link_to "Register", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+<% end %>
+</div>
+
+<% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+<div id = "nav">
+<h3><%= link_to 'Dashboard', dashboards_path %></h3>
+<h3><%= link_to 'Orders', order_display_dashboards_path %></h3> 
+<h3><%= link_to 'users', {:controller => "users", :action => "index"} %></h3>
+<h3><%= link_to 'monitors', {:controller => "devices", :action => "index"} %></h3> 
+<h3><%= link_to 'Feedback', {:controller => "messages",:action => "index"} %></h3>
+</div>
+ <%  end %>
+
+
+
+</head>
+
+ <body class="<%= controller.controller_name %>" >
+<%= yield %>
+ <div class="footer">
+             <% benchmark '##Render footer in application' do %>
+             <%= render "shared/home_footer" %>
+             <% end %>
+           </div>
+</body>
+
+</html>

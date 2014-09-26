@@ -1,0 +1,54 @@
+<div class="user_form">
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<fieldset>
+<legend>Enter Your Details</legend>
+
+  <div>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+   <div>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+ <div>
+   <%= f.label :gender %><br />
+   <%= f.radio_button :gender, "Male" %>
+   <%= f.label :gender, "Male" %>
+   <%= f.radio_button :gender, "Female" %>
+   <%= f.label :gender, "Female" %>
+  </div>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+  <div><%=f.label :contact_number %><br/>
+  <%=f.text_field :contact_number, autofocus:true %></div>
+  
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</fieldset>
+
+<% end %>
+</div>
+

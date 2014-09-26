@@ -1,0 +1,29 @@
+<br />
+<br />
+<br />
+<table>
+<% @devices.each do |device| %>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td>
+<div class="entry">
+<%= image_tag(device.avatar, class: 'list_image') %>
+</div>
+</td>
+
+<td class="list_description">
+<dl>
+<dt><%= device.name %></dt>
+<dd><%= truncate(strip_tags(device.description), length: 1000) %></dd>
+</dl>
+<dl>
+
+<dt><%= link_to ' Check Availability', new_availability_path(device_id: device) %></dt>
+
+</dl>
+</td>
+
+
+<% end %>
+</table>
+<br />
+

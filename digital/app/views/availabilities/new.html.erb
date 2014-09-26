@@ -1,0 +1,90 @@
+<br><br><br><br>
+<html>
+<head>
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css"">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+<script>
+     $(function() {
+             $( ".datepick" ).datepicker({ dateFormat: 'yy-mm-dd' ,minDate: '0'}); //$('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
+     });
+</script>
+<h3 align="center">Checking Availability</h3>
+<br />
+</head>
+<body>
+
+<div align="center" id="bodypart">
+<%=form_for :availabilities, :url => {:action => 'display',:id=>params[:id]}, :html=>{:onsubmit=>"return validateform(this)"} do |f|%>
+From Date
+<input type="text" class="datepick" id="from_date" name="from_date">
+To Date
+<input type="text" class="datepick" id="to_date" name="to_date"><br />
+
+<br />
+<%= f.hidden_field :id %>
+From Time
+<%= f.time_select :from_time,:ampm => true,:minute_interval => 10,:default => Time.now.change(:hour => 12), :simple_time_select => true,
+ :start_hour => 1, :end_hour => 12,:prompt=>:'select',:order=>[:Hour,:Merdian]%>
+
+To Time
+<%= f.time_select :to_time,:ampm => true,:minute_interval => 10,:default => Time.now.change(:hour => 12), :simple_time_select => true,
+ :start_hour => 1, :end_hour => 12,:prompt=>:'select',:order=>[:Hour,:Merdian]%>
+<br />
+<br />
+
+<br />
+<br />
+<%= f.submit "Check" %>
+<% end %>
+
+</body>
+
+<script type="text/javascript">
+function validateform(f)
+{
+  if (f.from_date.value=="")
+  {
+     alert("You must enter from date");
+     f.from_date.focus();
+     return false;
+  }
+  if (f.to_date.value=="")
+  {
+     alert("You must enter to date");
+     f.to_date.focus();
+     return false;
+  }
+   if (f.devices_from_time_4i.value=="")
+  {
+     alert("You must enter from time");
+     f.devices_from_time_4i.focus();
+     return false;
+  }
+   if (f.devices_from_time_5i.value=="")
+  {
+     alert("You must enter from time");
+     f.devices_from_time_5i.focus();
+     return false;
+  }
+  if (f.devices_to_time_4i.value=="")
+  {
+     alert("You must enter to time");
+     f.devices_to_time_4i.focus();
+     return false;
+  }
+  if (f.devices_to_time_5i.value=="")
+  {
+     alert("You must enter to time");
+     f.devices_to_time_5i.focus();
+     return false;
+  }
+   if (f.devices_day.value=="")
+  {
+     alert("You must enter day");
+     f.devices_day.focus();
+     return false;
+  }
+}
+</script>

@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% @location.devices && @location.devices.each do |device| %>
+
+      <tr>
+        <td><%= device.name %></td>
+        <td><%= device.description %></td>
+        <td><%= image_tag(device.avatar, size: "100x100") %></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+

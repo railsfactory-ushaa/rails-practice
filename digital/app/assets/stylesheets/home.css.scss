@@ -1,0 +1,29 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#banner {
+background: #F5F6CE;
+padding: 20px;
+border-bottom: 2px solid;
+font: small-caps 40px/40px  cursive;
+color: #282;
+text-align: center;
+
+}
+#search {
+ margin-top: 50px;
+ margin-left: 1000px;
+}
+
+#search1 {
+margin-top:-15px;
+margin-left: 120px;
+
+}
+
+.textbox
+{
+ width: 100px;
+ background-color: white;
+}

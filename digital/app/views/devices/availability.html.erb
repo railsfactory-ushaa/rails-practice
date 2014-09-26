@@ -1,0 +1,9 @@
+<%= form_tag result_devices_path, method: :get do %>
+<strong>from:</strong><%= select_date(@my_date, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}) %>
+<%= select_time(@my_time, include_seconds: true) %>
+<br /><br/><br/><br/>
+<strong>To:</strong><%= select_date(@my_date, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}) %>
+<%= select_time(@my_time, include_seconds: true) %>
+<br />
+<%= submit_tag "Go" %>
+<% end %>

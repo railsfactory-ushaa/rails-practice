@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<script>
+$(function() {
+$( "#tabs" ).tabs();
+});
+</script>
+<div id="tabs">
+
+<ul>
+<li><a href="#tabs-1"><%= link_to "My Profile",{:controller => "users", :action => "show", :id => current_user.id}, :remote => true %></a></li>
+<li><a href="#tabs-2"><%= link_to "My Cart",user_cart_carts_path, :remote => true %></a></li>
+<li><a href="#tabs-3"><%= link_to "my orders",user_order_orders_path, :remote => true %></a></li>
+<li><a href="#tabs-4"><%= link_to "my messages",user_message_messages_path, :remote => true %></a></li>
+<li><a href="#tabs-5"><%= link_to "Booked Monitors",ordered_monitors_carts_path, :remote => true %></a></li>
+</ul>
+</div>
+<div id ="div_id">
+
+</div>
+

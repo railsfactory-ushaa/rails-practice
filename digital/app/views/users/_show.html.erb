@@ -1,0 +1,17 @@
+<div id ="extra">
+<h2> Hi <%= current_user.first_name %> </h2>
+<p>
+<strong>Name</strong>
+<%= @user.first_name %>
+</p>
+<p>
+<strong>Email</strong>
+<%= @user.email%>
+</p>
+<p>
+<strong>Contact Number:</strong>
+<%= @user.contact_number %>
+</p>
+<p><%= image_tag(@user.image, class: "round-image") %></p>
+<%= button_to "edit profile", edit_user_registration_path, method: :get %>
+</div>

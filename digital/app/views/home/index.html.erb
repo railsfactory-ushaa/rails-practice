@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio Item - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style type="text/css">
+h2 {color:HotPink;}
+div.extra { border: 2px solid #a1a1a1;
+    padding: 50px 40px; 
+    background: #dddddd;
+    margin-left: 50px;
+    width: 300px;
+    float: right;
+    border-radius: 25px;
+     }
+p.extra1 { border: 2px  #a1a1a1;
+    padding: 10px 40px 40px 120px; 
+    background: #dddddd;
+    margin-left: 50px;
+    margin-top: -40px;
+    width: 300px;
+    height: 80px;
+    float: right;
+    border-radius: 25px;
+     }
+</style>
+
+</head>
+<body>
+<div id = "search">
+<strong>search monitors </strong></div>
+<%= form_tag home_search_path, method: :get do %>
+ <p class = "extra1"><%= select_tag 'location', options_for_select(Location.all.map{ |c| [c.name, c.id] }), { :class => "textbox" } %>
+<%= submit_tag "Go" %></p>
+<% end %>
+
+<% if ((!user_signed_in?) || (user_signed_in? && current_user.role_id == 3)) %>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">We care for your product
+                    <small>You sitback and enjoy</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="http://presentationpoint.com/images/img/solutions/advertising-screen-showing-publicity.jpg" alt="" width=600 height=200>
+
+            </div>
+
+            <div class="col-md-4">
+                <h2>Our goal is to deliver more than advertising impressions</h3>
+                <p>Our digital network includes some of the top shopping malls in India. We help our advertisers    deliver greater impact and highr awareness, turning shoppers into buyers.</p>
+                <p>From small local programs to fully integrated multi-media national campaigns, Digital-AdMyWords leads the industry in providing unique,memorable and highly effective advertising and promotional options for its customers.</p>
+            </div>
+
+        </div>
+       <div id="banner">
+       <h4> Are you ready to GO? Get Start from here <%= link_to "Demo", static_pages_demo_path %></h4>
+        </div>
+       <h3>How Digital Signage Works: </h3>
+
+       <div class= "extra"><h5> 3 Stay Relax</h5><br /> No worries, we will take care of your order </div>
+       <div class= "extra"><h5> 2 Place your Order</h5><br /> check availability,if you wish you can order monitors </div>
+       <div class= "extra"><h5> 1 Register Your account</h5><br />you have to register to our website before using its services.</div>
+      <% end %>
+        <hr>
+
+        <!-- Footer -->
+        
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+ 
+
+</body>
+</html>
+
+

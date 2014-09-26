@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @schedule.device_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @schedule.user_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @schedule.order_id %>
+</p>
+
+<p>
+  <strong>Fromdate:</strong>
+  <%= @schedule.fromdate %>
+</p>
+
+<p>
+  <strong>Todate:</strong>
+  <%= @schedule.todate %>
+</p>
+
+<p>
+  <strong>Fromtime:</strong>
+  <%= @schedule.fromtime %>
+</p>
+
+<p>
+  <strong>Totime:</strong>
+  <%= @schedule.totime %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>

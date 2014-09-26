@@ -1,0 +1,31 @@
+<h1>orders list</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card type</th>
+      <th>User</th>
+      <th>Status</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.each do |order| %>
+      <tr>
+        <td><%= order.card_type %></td>
+        
+        <td><%= order.user.first_name %></td>
+        
+        <td><%= order.order_status.status %></td>
+        
+        <td><%= link_to 'Show', order %></td>
+	
+              </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

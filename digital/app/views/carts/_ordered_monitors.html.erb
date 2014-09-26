@@ -1,0 +1,29 @@
+<br />
+<br />
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>Monitor</th>
+      <th>description</th>
+      <th>Price</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% current_user.carts.all.where("status = ?", "ordered").each do |cart| %>
+
+    <tr>
+        <td><%= cart.device.name %></td>
+        <td><%= cart.device.description %></td>
+	 <td><%= cart.device.price %></td>
+        <td><%= image_tag(cart.device.avatar, :width => 75, :height => 60) %>
+        <td><%= link_to 'Show', cart %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       </tr>
+
+    <% end %>
+  </tbody>
+</table>

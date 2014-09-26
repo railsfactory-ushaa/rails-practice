@@ -1,0 +1,10 @@
+<div class = "pd"> 
+ <% @location.each do |location| %>
+  <font size ="5"><%= link_to location.name, {:controller => "devices", :action => "display", :id => location.id } %>
+</font>
+  <% end %>
+
+ </div>
+
+
+

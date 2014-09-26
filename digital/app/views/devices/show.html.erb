@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @device.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @device.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @device.price %>
+</p>
+
+<p>
+  <strong>Location_Id:</strong>
+  <%= @device.location_id %>
+</p>
+
+<p>
+  <strong>Resolution_Id:</strong>
+  <%= @device.resolution_id %>
+</p>
+
+<p>
+  <strong>From Date:</strong>
+  <%= @device.fromdate %>
+</p>
+<p>
+  <strong>To Date:</strong>
+  <%= @device.todate %>
+</p>
+<p>
+  <strong>From Time:</strong>
+  <%= @device.fromtime %>
+</p>
+<p>
+  <strong>To Time:</strong>
+  <%= @device.totime %>
+</p>
+
+
+
+<p>
+
+<strong>Avatar:</strong>
+<%= image_tag(@device.avatar, :width => 75, :height =>60) %>
+</p>
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

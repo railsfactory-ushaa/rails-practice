@@ -1,0 +1,59 @@
+
+<%= form_for(@device, :html => { :multipart => true }) do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description,:rows=> 10, :cols=> 25 %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :location_id %><br>
+    <%= f.number_field :location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :resolution_id %><br>
+    <%= f.number_field :resolution_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fromdate %><br>
+    <%= f.date_select :fromdate %>
+  </div>
+ <div class="field">
+    <%= f.label :todate %><br>
+    <%= f.date_select :todate %>
+  </div>
+  <div class="field">
+    <%= f.label :fromtime %><br>
+    <%= f.time_select :fromtime %></div>
+  <div class="field">
+    <%= f.label :totime %><br>
+    <%= f.time_select :totime %></div>
+
+   <div class="field">
+     <%=f.label :avatar %><br>
+      <%= f.file_field :avatar %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+  

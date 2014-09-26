@@ -1,0 +1,33 @@
+<div class ="heading">
+<h1>Listing devices</h1></div>
+
+<table>
+<% @devices.each do |device| %>
+<tr >
+<td>
+<div class="entry">
+<%= image_tag(device.avatar, class: 'list_image') %>
+</div>
+</td>
+
+<td class="list_description">
+<dl>
+<dt><%= device.name %></dt>
+<dd><%= truncate(strip_tags(device.description), length: 1000) %></dd>
+</dl>
+<dl>
+<dt><%= link_to 'show', device %></dt>
+<dt><%= link_to 'Edit', edit_device_path(device) %></dt>
+<dt><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></dt>
+
+</dl>
+</td>
+
+
+<% end %>
+</table>
+<br />
+
+<% if (user_signed_in? && current_user.role_id == 1) %>
+<%= link_to 'New Device', new_device_path %>
+<% end %>

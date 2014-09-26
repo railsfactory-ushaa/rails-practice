@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @order_transaction.order_id %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @order_transaction.action %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @order_transaction.amount %>
+</p>
+
+<p>
+  <strong>Success:</strong>
+  <%= @order_transaction.success %>
+</p>
+
+<%= link_to 'Edit', edit_order_transaction_path(@order_transaction) %> |
+<%= link_to 'Back', order_transactions_path %>
